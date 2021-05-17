@@ -57,23 +57,22 @@ def check_response_status(curr_response, full_time):
         print(f'[{full_time}] Status has been set successfully! '
               f'Waiting 1 hour to update!')
         return 1
-    elif R_FIVE in curr_response:
+    if R_FIVE in curr_response:
         print('[Error] Access token has been expired or it is wrong. '
               'Please change it and try again!')
         return 5
-    elif R_EIGHT in curr_response:
+    if R_EIGHT in curr_response:
         print('[Error] Got deprecated API version or no API version. '
               'Please add/change API version and try again!')
         return 8
-    elif R_TWENTY_NINE in curr_response:
+    if R_TWENTY_NINE in curr_response:
         print("[Error] Rate limit!")
         print('We are sorry, we can\'t do nothing about this. '
               'All you need is patience. '
               'Please wait before initilizing script again!')
         return 29
-    else:
-        print('[Error] Unknown error! '
-              'Here are response string:')
-        print(curr_response)
-        print('We hope this can help you out to fix this problem!')
-        return 0
+    print('[Error] Unknown error! '
+          'Here are response string:')
+    print(curr_response)
+    print('We hope this can help you out to fix this problem!')
+    return 0
